@@ -1,0 +1,795 @@
+/* обнуление */
+::before
+::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+html,
+body {
+	height: 100%;
+	line-height: 1;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: Montserrat;
+	color: #252B42;
+	background-color: #fafafa;
+}
+/* ----------------------------------------------------------------------- */
+.wrapper {
+	min-height: 100%;
+	overflow: hidden; /* для скролла */
+	display: flex;
+	flex-direction: column;
+}
+
+/* ----------------------------------------------------------------------- */
+._container {			/* Выставляю ширину*/
+	max-width: 1200px;
+	margin: 0px auto;  
+	padding: 0px 15px;   /* Убераю прилепание контента */
+	box-sizing: content-box; /* Убераю прилепание контента */
+}
+
+._ibg {
+	position: relative;
+}
+._ibg img{						/*  стиль к картинке ( надо посмотреть урок) */
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+/* -------------------------ШАПКА--------------------------------------------------------------------------------------- */
+.header {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 50;
+}
+.header__container {
+	display: flex;
+	min-height: 104px;
+	align-items: center;
+}
+.header__logo {
+	font-size: 24px;
+	font-weight: 700;
+	color: inherit;
+}
+.header__menu {
+	margin: 0px 0px 0px 133px;
+}
+
+.menu {
+	margin: 5px 0px; /* безопасный отступ, чтоб шапка меню не прилепала к верху страницы при большом кол-ве элементов */
+}
+.menu__list {
+	display: flex;
+	flex-wrap: wrap;  /* ломает панель чтоб добавить потом ещё пунткы навигации */
+}
+.menu__item {
+}
+.menu__item:not(:last-child){
+	margin: 0px 21px 0px 0px;
+}
+.menu__link {
+	color: #737373;
+	font-weight: 600;
+	line-height: calc(24 / 14 * 100%); /* 24px перевожу в %  14 = размер шрифта */
+}
+
+
+@media (max-width: 992px){
+	.header__menu{
+		margin: 0px 0px 0px 80px;	/* меняем остступ на планшетах */
+	}
+}
+
+@media (max-width: 767px){
+	.header__menu{
+		margin: 0px 0px 0px 40px;	/* меняем отступ на экранах поменьше */
+	}
+}
+
+@media (max-width: 479px){
+	.menu__link {
+		font-size: 18px;		/*  размер шрифта для мобилок, чтоб можно было попадать пальцем по меню */
+	}
+	.header__container {
+		min-height: 70px;		/* высота для мобилок */
+	}
+}
+
+/* -------PAGE---------------------------------------------------------------------------------------------------------- */
+
+.page {
+	flex: 1 1 auto;
+}
+.page__main-block {
+}
+.page__services {
+	position: relative;			/*Поднимаю колонки чтоб не слетели блокки в низу, единственный правильный способ*/
+	z-index: 2;					/*Поднимаю колонки чтоб не слетели блокки в низу, единственный правильный способ*/
+	margin: -111px 0px 0px 0px;	/*Отрицательный отступ из-за него блоки внизу подтянутся*/
+}
+.page__adventages {
+}
+
+.page_practice {
+}
+.page__whoweare {
+}
+.page__clients.menu__item:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+.page__subscribe {
+}
+.page__subscribe:not(:last-child){
+	margin: 0px 0px 10px 0px;
+}
+.page__getintouch {
+}
+.page__contact {
+}
+/* -------HEADER BLOCK---------------------------------------------------------------------------------------------------------- */
+
+.header-block {
+	text-align: center;
+	letter-spacing: 0.2;
+	font-weight: 700;
+}
+.header-block__title {
+	font-size: 40px;
+	line-height: 142%;
+	font-weight: 700;
+}
+.header-block__title:not(:last-child){
+	margin: 0px 0px 10px 0px;
+}
+.header-block__sub-title {
+	color: #737373;
+	line-height: 142%;
+}
+
+/* -------ПОДВАЛ---------------------------------------------------------------------------------------------------------- */
+.footer {
+
+}
+
+/* -------main-block -------------------------------------------------------------------------------------------------- */
+
+
+.main-block {
+	position: relative;
+}
+
+.main-block__body {
+	padding: 184px 0px 191px 0px;
+	position:relative;
+	z-index: 2;
+	max-width: 400px;
+}
+@media(max-width: 992px) {
+	.main-block__body{
+		padding: 120px 0px 191px 0px;
+	}
+}
+
+.main-block__body > *:not(:last-child) { /*отступ у элементов первого уровня вложености для всего текста в боди чтоб не писать к каждому*/
+	margin: 0px 0px 35px 0px;
+}
+
+
+.main-block__title {
+	font-size: 58px;
+	letter-spacing: 0.2px;
+	line-height: (80 / 58 * 100); /*137%*/
+	font-weight: 800;
+}
+@media(max-width: 479px){
+	.main-block__title{
+		font-size: 42px;
+	}
+}
+
+.main-block__text {
+	color:#252B42;
+	font-size: 20px;
+	line-height: 150%;
+}
+@media(max-width: 479px) {
+	.main-block__text{
+		color:#15161a;  /* затемняю текст чтоб было лучше видно на маленьких экранах ибо там светлый он и светлый фогн*/
+	}
+}
+.main-block__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -10px 0;
+}
+.main-block__button {				/* хорошая вёрстка кнопок*/
+	border-radius: 37px;
+	display: flex;
+	min-height: 48px;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 36px;
+	font-weight: 700;
+	line-height: 150%;
+	text-align: center;
+	margin: 10px 0;
+}
+@media(max-width: 479px) {
+	.main-block__button {
+		flex: 1 1 100%;
+	}
+}
+@media(max-width: 479px) {
+	.main-block__button:not(:last-child){	/* отступ вправо только на экранах шире */
+	margin-right: 10px;
+	}
+}
+.main-block__button__orange {
+	background-color: #ff7b47;
+	color: #FFFFFF;
+}
+.main-block__button__border {
+	color: #0D5C63;
+	border: 1px solid #0D5C63;
+}
+
+.main-block__image{
+	position: absolute; /* делает картинку на фоне*/
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+@media(max-width: 1300px) {
+	.main-block__image img {
+		object-position: right ;
+	}
+}
+
+@media(max-width: 992px) {
+	.main-block__image img {
+		opacity: 0.5;
+	}
+}
+
+/* ---SERVICES---------------------------------------------------------------- */
+.services {
+}
+.services__container {
+}
+._container {
+}
+.services__body {
+	display: flex;
+	margin: 0px -15px -30px;
+}
+.services__column {
+	padding: 0px 15px;
+	flex: 0 1 33.333%;
+	margin: 0px 0px 100px 0px;
+}
+.services__item {
+	min-width: 300px;
+	box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+	background-color: #fff;
+	padding: 35px;
+	height: 100%;
+}
+.item-service {
+}
+.item-service_green{
+	background-color: #0D5C63;
+}
+.item-service_green .item-service__title{
+	color: #fff;
+}
+.item-service_green .item-service__text{
+	color: #fff;
+}
+.item-service > *:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+.item-service__icon {
+}
+.item-service__title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 133%;
+	letter-spacing: 0.1px;
+}
+.item-service__text {
+	color: #737373;
+	line-height: 142%;
+}
+
+/* --ADVENTAGES-------------------------------------------------------------- */
+
+.adventages {
+	padding: 80px 0px;
+}
+.adventages__container {
+}
+.adventages__header {
+	margin: 0px 0px 50px 0px;
+}
+.adventages__body {
+	display: flex;
+	margin: 0px -15px;
+	width: 1200px;
+}
+@media (max-width: 1000px){
+	.adventages__body{
+		flex-wrap: wrap;
+		width: auto;
+	}
+}
+.adventages__column {
+	padding: 0px 15px;
+	margin: 0px 0px 30px 0px;
+	flex: 0 1 25%;
+}
+.advetages__item {
+	background-color: #fff;
+	padding: 30px;
+	text-align: center;
+	font-weight: 700;
+}
+.advetages__item > *:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+.adventages__icon {
+	height: 48px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.advetages__value {
+	font-size: 40px;
+	line-height: 142%;
+}
+.adventages__text {
+	letter-spacing: 0.1px;
+	color: #737373;
+	font-size: 16px;
+	line-height: 150%;
+}
+
+/* -------PRACTICE----------------------------------------------- */
+
+.practice {
+}
+.practice__container {
+
+}
+.practice__header{
+	margin: 0px 0px 45px 0px;
+}
+.practice__body {
+	margin: 0px -20px 120px 0px;
+	display: flex;
+	width: 1200px;
+}
+.practice__column {
+	padding: 0px 20px;
+	flex: 0 1 25%;
+}
+.practice__item {
+}
+.item-practice {
+	background-color: #fff;
+}
+.item-practice__content{
+	padding: 30px;
+}
+.item-practice__link {
+	color: inherit;
+	display: inline-block;  /* Ссылка строчная мы делаем блочную что бы можно было сделать отспупы */
+}
+.item-practice__link:hover {
+	text-decoration: underline;
+}
+.item-practice__link:not(:last-child){
+	margin: 0px 0px 15px 0px;
+}
+.item-practice__title {
+	letter-spacing: 0.1px;
+	font-style: 16px;
+	line-height: 150%;
+	font-weight: 700;
+}
+.item-practice__text {
+	color: #737373;
+	line-height: 142%;
+	margin: 0px 0px 30px 0px;
+}
+.item-practice__image {
+	padding: 0px 0px 60% 0px;
+	display: block;
+}
+/* -----WHOWEARE---------------------------------------------------------------------- */
+
+
+.whoweare {
+	padding: 80px 0px 100x 0px;
+}
+.whoweare__container {
+	width: 1200px;
+}
+.whoweare__header {
+	margin: 0px 0px 100px 0px;
+}
+
+.whoweare__body {
+	display: flex;
+	padding: 0px 0px 130px 0px;
+}
+.whoweare__video {
+	position: relative;
+	flex: 0 0 57%;
+	padding: 0px 0px 30% 0px;
+	
+
+}
+.whoweare__video iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+.whoweare__content {
+	flex: 1 1 auto;
+	padding: 20px 0px 0px 121px;
+}
+.whoweare__title {
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 142%;
+	letter-spacing: 0.2px;
+}
+.whoweare__title:not(:last-child){
+	margin: 10px 0px 10px 0px;
+}
+.whoweare__text {
+	color:#737373;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 143%;
+	letter-spacing: 0.2px;
+}
+.whoweare__items {
+	margin: 50px 0px 0px 0px;
+}
+.whoweare__item {
+}
+.whoweare__item:not(:last-child){
+	margin: 0px 0px 30px 0px;
+}
+.item-whoweare {
+	display: flex;
+}
+.item-whoweare__icon {
+	flex: 0 0 32px;
+}
+.item-whoweare__body {
+	flex: 1 1 auto;
+	padding: 0px 0px 0px 20px;
+}
+.item-whoweare__title {
+	font-weight: 700;
+	font-style: 16px;
+	line-height: 150%;
+}
+.item-whoweare__title:not(:last-child){
+	margin: 0px 0px 5px 0px;
+}
+.item-whoweare__text {
+	color: #737373;
+	line-height: 142%;
+}
+
+/* ---CLIENTS------------------------------------ */
+
+
+.clients {
+	padding: 58px 0px;
+}
+.clients_container {
+}
+.clients__items {
+	display: flex;
+	align-items: center;
+	width:1200px;
+}
+.clients__item {
+	flex: 0 1 16.6%;
+	text-align: center;
+}
+/* -------SUbSCRIBE---------------------------------------------- */
+
+
+.subscribe__body {
+	width: 1200px;
+	height: 50px;
+	background-color: #17213C;
+	margin-bottom: 120px;
+
+}
+
+/* -----GET IN TOUCH ------------------------------------------- */
+
+
+.getintouch {
+	padding: 80px 0px 135px 0px;
+}
+.getintouch__container {
+}
+.getintouch__header {
+	margin: 0px 0px 80px 0px;
+}
+.header-block {
+}
+.getintouch__items {
+	display: flex;
+	align-items: center;
+}
+.getintouch__item {
+	flex: 0 1 33.333%;
+}
+.item-getintouch {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	padding: 50px 15px;
+}
+.item-getintouch > *:not(:last-child){
+	margin: 0px 0px 15px 0px;
+}
+.item-getintouch_active{
+	background: #252B42;
+	color: #fff;
+	height: inherit;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 80px 15px; /*Сделал внутренний отступ у среднего бловка больще тем самым увеличил его высоту а по скольку align-items: center; они все ровные*/
+}
+
+.item-getintouch_active > *:not(:last-child){
+	margin: 0px 0px 15px 0px;
+}
+.item-getintouch_active .item-getintouch__button {
+	border: 1px solid #fff;
+	color:#fff
+}
+
+.item-getintouch__icon {
+}
+.item-getintouch__emails {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.item-getintouch__email {
+	color: inherit;
+	font-weight: 600;
+	line-height: 150%;
+	font-size: 16px;
+}
+.item-getintouch__email:hover{
+	text-decoration: underline;
+}
+.item-getintouch__label {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 150%;
+	text-align: center;
+}
+.item-getintouch__button {
+	border: 1px solid #FF7B47;
+	min-height: 44px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 5px 20px;
+	line-height: 142%;
+	border-radius: 5px;
+	color:#FF7B47;
+
+	transition: all 0.3s ease 0s;  /*Делает вместе с хавером при наведении подсвечивание*/
+}
+.item-getintouch__button:hover {
+	background-color: #FF7B47;
+	color: #fff;
+
+}
+/* ------------------CONTACT-------------------------------------------------------------------- */
+
+
+.contact {
+	background-color: #fff;
+	padding: 42px 0px;
+}
+.contact__container {
+}
+
+.contact__body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.contact__content {
+	font-weight: 700;
+}
+.contact__title {
+	color: #252B42;
+	letter-spacing: 0.1px;
+	font-size: 24px;
+	line-height: 133%;
+}
+.contact__title:not(:last-child){
+	margin: 0px 0px 10px 0px;
+}
+.contact__text {
+	color: #737373;
+	line-height: 142%;
+	font-size: 14px;
+}
+.contact__button {
+	display: flex;
+	min-height: 58px;
+	background-color: #FF7B47;
+	border-radius: 5px;
+	padding: 5px 40px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+
+	transition: background-color 0.3s ease 0s;
+}
+.contact__button:hover{
+	background-color: #dc6c40;
+}
+
+/* ------FOOTER------------------- -------------------------------------*/
+
+
+.footer {
+}
+.footer__top {
+	background: #17213C;
+	padding: 50px 0px;
+}
+.footer__main {
+	
+}
+.footer__row {
+	margin: 0px -15px;
+	display: flex;
+}
+.footer_column {
+	flex: 0 1 20%;
+	margin: 0px 15px;
+}
+.footer__label {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 150%;
+	margin: 0px 0px 20px 0px;
+	color: #fff;
+}
+.footer__menu {
+}
+
+.menu-footer {
+}
+.menu-footer__list {
+	padding: 0px;
+	margin: 0px;
+}
+.menu-footer__item:not(:last-child){
+	margin: 0px 0px 20px 0px;
+}
+.menu-footer__link {
+	color: #fff;
+	letter-spacing: 0.2px;
+	line-height: 142%;
+	display: inline-block;
+}
+.menu-footer__link:hover{
+	text-decoration: underline;
+}
+
+
+
+
+.footer__contacts {
+}
+.contacts-footer {
+	display: flex;
+	flex-direction: column;
+}
+.contacts-footer__item{
+	padding: 0px 0px 0px 34px;
+	line-height: 142%;
+	display: flex;
+	align-items:center;
+	min-height: 30px;
+	color: #ffffff;
+}
+.contacts-footer__item:hover{
+	text-decoration: underline;
+}
+.contacts-footer__item:not(:last-child){
+	margin: 0px 0px 12px 0px;
+}
+.contacts-footer__phone {
+	background: url("../img/footer/icons/1.svg") 0 no-repeat;
+}
+.contacts-footer__map {
+	background: url("../img/footer/icons/2.svg") 0 no-repeat;
+
+}
+.contacts-footer__mail {
+	background: url("../img/footer/icons/3.svg") 0 no-repeat;
+
+}
+.footer__bottom {
+	padding: 25px 0px;
+}
+.footer__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footer__copy {
+
+}
+.footer__social {
+	display: flex;
+	align-items: center;
+}
+.social__item {
+}
+.social__item:not(:last-child){
+	margin: 0px 20px 0px 0px;
+}
